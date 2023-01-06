@@ -3,6 +3,7 @@ import { ApolloDriver } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 
+import { AuthModule } from './auth/auth.module';
 import { graphqlConfig } from './config/graphqlConfig';
 import { UsersModule } from './users/users.module';
 
@@ -13,6 +14,7 @@ import { UsersModule } from './users/users.module';
 			useFactory: graphqlConfig,
 		}),
 		UsersModule,
+		AuthModule,
 	],
 	controllers: [],
 	providers: [],

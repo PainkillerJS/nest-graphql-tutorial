@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
+import { use } from 'passport';
 import { v4 as uuidv4 } from 'uuid';
 
 import { GetUserArgs } from './dto/args/getUser.args';
@@ -30,6 +31,10 @@ export class UsersService {
 
 	getUser({ userId }: GetUserArgs): User {
 		return this.users.find((user) => user.userId === userId);
+	}
+
+	getUserByEmail(email: string): User | null {
+		return this.users.find((user) => user.email === email);
 	}
 
 	updateUser(updateUser: UpdateUserInput): User {
